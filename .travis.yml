@@ -1,0 +1,17 @@
+language: c++
+
+notifications:
+  email:
+    - acelan@gmail.com
+
+before_install:
+  - sudo apt-get install libqt4-dev choqok libqjson-dev libqoauth-dev kdelibs5-dev
+
+script:
+  - sudo ln -s /usr/lib/libchoqok.so.1 /usr/lib/libchoqok.so
+  - cmake . -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix`
+  - make
+
+branches:
+  only:
+      - master
